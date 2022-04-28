@@ -168,7 +168,7 @@ photofigcaption: false
 
 # anchor
 # when you scroll in post, the URL will update according to header id.
-anchor: false
+anchor: true
 
 # Share System (分享功能)
 # --------------------------------------
@@ -370,7 +370,7 @@ display_mode: light
 
 # Beautify (美化頁面顯示)
 beautify:
-  enable: true
+  enable: false
   field: post # site/post
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
@@ -428,6 +428,11 @@ aside:
   card_author:
     enable: true
     description: 梦想将故
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Follow me
+      link: https://github.com/zhinushannan/
   card_announcement:
     enable: false
     content: This is my Blog
