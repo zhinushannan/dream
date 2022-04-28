@@ -1,3 +1,12 @@
+https://dream.kwcoder.club/live2dw/assets/mtn/idle.mtn
+https://dream.kwcoder.club/live2dw/assets/koharu.physics.json
+https://dream.kwcoder.club/live2dw/assets/moc/koharu.2048/texture_00.png
+https://dream.kwcoder.club/live2dw/assets/moc/koharu.moc
+https://dream.kwcoder.club/live2dw/assets/koharu.model.json
+https://dream.kwcoder.club/live2dw/lib/L2Dwidget.0.min.js
+https://dream.kwcoder.club/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05
+
+
 https://dream.kwcoder.club/
 
 https://dream.kwcoder.club/urls.txt
