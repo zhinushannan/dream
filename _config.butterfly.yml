@@ -35,17 +35,6 @@ social:
 # search (搜索)
 # --------------------------------------
 
-# Algolia search
-algolia_search:
-  enable: false
-  hits:
-    per_page: 6
-
-  labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
-    hits_stats: '${hits} results found in ${time} ms'
-
 # Local search
 local_search:
   enable: true
@@ -310,7 +299,7 @@ tag_ui: # 留空或 index
 # The formal of color: '#49B202'
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
 # White color will be shown as default
-background:
+background: /images/backgroud.png
 
 # Show the footer background image (same as top_img)
 footer_bg: false

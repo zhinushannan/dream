@@ -1,0 +1,16 @@
+- class_name: 友链
+  link_list:
+    - name: 万物皆可喵
+      link: https://developer-help.cn/
+      avatar: https://wkphoto.cdn.bcebos.com/2cf5e0fe9925bc313e291cfc4edf8db1cb137059.jpg
+      descr: 读书是通往成功最低的资本
+    - name: 静水流深
+      link: https://zhjgqy1314.kwcoder.club/
+      avatar: https://pic.imgdb.cn/item/6269f19f239250f7c54fa1a1.png
+      descr: 人生天地间，忽如远行客。
+    - name: 为人民服务（公务员备考）
+      link: https://serve-the-people.kwcoder.club/
+      avatar:
+      descr: 为把我国建设成为富强民主文明和谐美丽的社会主义现代化强国而努力奋斗。
+
+
