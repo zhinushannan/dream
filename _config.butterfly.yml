@@ -24,7 +24,7 @@ code_word_wrap: false
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
-  enable: false
+  enable: true
   copyright: false
 
 # social settings (社交圖標設置)
@@ -127,6 +127,11 @@ post_meta:
     date_type: created # created or updated or both 文章頁日期是創建日或者更新日或都顯示
     categories: true # true or false 文章頁是否顯示分類
     tags: true # true or false 文章頁是否顯示標籤
+
+related_post:
+  enable: false
+  limit: 6 # 显示推荐文章数目
+  date_type: created # or created or updated 文章日期显示创建日或者更新日
 
 # wordcount (字數統計)
 wordcount:
