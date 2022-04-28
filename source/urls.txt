@@ -6,7 +6,9 @@ https://developer.kwcoder.club/images/avator.jpg
 https://developer.kwcoder.club/images/backgroud.jpg
 https://developer.kwcoder.club/images/img.jpg
 
+https://developer.kwcoder.club/images/java/Java简介/jvm,jre,jdk.png.jpg
+https://developer.kwcoder.club/images/其他/语言类型/cover.png
 
-
-
-
+https://developer.kwcoder.club/2022/04/29/Java简介/
+https://developer.kwcoder.club/2022/04/30/语言类型/
+https://developer.kwcoder.club/2022/04/30/Java%20的内存、堆、栈/
