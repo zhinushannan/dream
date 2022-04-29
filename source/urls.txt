@@ -21,6 +21,13 @@ https://dream.kwcoder.club/images/web/HTTP请求/http.png
 https://dream.kwcoder.club/images/web/HTTP请求/httpbin官网.png
 https://dream.kwcoder.club/images/web/HTTP请求/httpbin可用API.png
 
+https://dream.kwcoder.club/images/工具/deepin/1.cover.png
+https://dream.kwcoder.club/images/工具/deepin/3-1是否支持AP模式.png
+https://dream.kwcoder.club/images/工具/deepin/3-2网卡名称.png
+https://dream.kwcoder.club/images/工具/deepin/3-3有线网卡名称.jpg
+https://dream.kwcoder.club/images/工具/deepin/3-4设备冲突.png
+https://dream.kwcoder.club/images/工具/deepin/3-5杀死进程.png
+
 https://dream.kwcoder.club/2022/04/29/Java简介/
 https://dream.kwcoder.club/2022/04/30/语言类型/
 https://dream.kwcoder.club/2022/04/30/Java%20的内存、堆、栈/

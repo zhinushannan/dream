@@ -441,14 +441,14 @@ aside:
     content: This is my Blog
   card_recent_post:
     enable: true
-    limit: 5 # if set 0 will show all
+    limit: 3 # if set 0 will show all
   card_categories:
     enable: true
-    limit: 8 # if set 0 will show all
+    limit: 5 # if set 0 will show all
     expand: none # none/true/false
   card_tags:
     enable: true
-    limit: 40 # if set 0 will show all
+    limit: 20 # if set 0 will show all
     color: false
   card_archives:
     enable: true
