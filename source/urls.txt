@@ -17,6 +17,11 @@ https://dream.kwcoder.club/images/img.jpg
 
 https://dream.kwcoder.club/images/java/Java简介/jvm,jre,jdk.png.jpg
 https://dream.kwcoder.club/images/其他/语言类型/cover.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/cover.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/1.post-ui.pug文件.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/2.article-sort.pug文件.png
+
+
 https://dream.kwcoder.club/images/web/HTTP请求/http.png
 https://dream.kwcoder.club/images/web/HTTP请求/httpbin官网.png
 https://dream.kwcoder.club/images/web/HTTP请求/httpbin可用API.png
@@ -32,3 +37,4 @@ https://dream.kwcoder.club/2022/04/29/Java简介/
 https://dream.kwcoder.club/2022/04/30/语言类型/
 https://dream.kwcoder.club/2022/04/30/Java%20的内存、堆、栈/
 https://dream.kwcoder.club/2022/05/01/HTTP请求/
+https://dream.kwcoder.club/2022/05/04/Deepin系统打开WiFi就不能开热点？三个步骤解决问题/
