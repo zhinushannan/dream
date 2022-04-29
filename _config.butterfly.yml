@@ -5,10 +5,11 @@ menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
-  清单||fas fa-list:
-    - Music || /music/ || fas fa-music
-    - Movie || /movies/ || fas fa-video
+  # 分类: /categories/ || fas fa-folder-open
+  分类||fas fa-folder-open||hide:
+    java: /categories/java/ || iconfont icon-java1
+    web: /categories/web/ || iconfont icon-http
+    其他: /categories/其他/ || iconfont icon-qita
   友情链接: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
 
@@ -585,6 +586,7 @@ fragment_cache: true
 inject:
   head:
   # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="//at.alicdn.com/t/font_3367359_iv6omb2moap.css" >
   bottom:
   # - <script src="xxxx"></script>
 
@@ -594,36 +596,36 @@ inject:
 CDN:
   # main
   main_css: /css/index.css
-  jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+  jquery: https://jsdelivr.kwcoder.club/npm/jquery@latest/dist/jquery.min.js
   main: /js/main.js
   utils: /js/utils.js
 
   # comments
-  blueimp_md5: https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js
-  gitalk: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
-  gitalk_css: https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css
-  valine: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
-  disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
-  disqusjs_css: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
+  blueimp_md5: https://jsdelivr.kwcoder.club/npm/blueimp-md5/js/md5.min.js
+  gitalk: https://jsdelivr.kwcoder.club/npm/gitalk@latest/dist/gitalk.min.js
+  gitalk_css: https://jsdelivr.kwcoder.club/npm/gitalk/dist/gitalk.min.css
+  valine: https://jsdelivr.kwcoder.club/npm/valine/dist/Valine.min.js
+  disqusjs: https://jsdelivr.kwcoder.club/npm/disqusjs@1/dist/disqus.js
+  disqusjs_css: https://jsdelivr.kwcoder.club/npm/disqusjs@1/dist/disqusjs.css
   utterances: https://utteranc.es/client.js
 
   # share
   addtoany: https://static.addtoany.com/menu/page.js
-  sharejs: https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js
-  sharejs_css: https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css
+  sharejs: https://jsdelivr.kwcoder.club/npm/social-share.js/dist/js/social-share.min.js
+  sharejs_css: https://jsdelivr.kwcoder.club/npm/social-share.js/dist/css/share.min.css
 
   # search
   local_search: /js/search/local-search.js
   algolia_js: /js/search/algolia.js
-  algolia_search: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js
-  algolia_search_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css
+  algolia_search: https://jsdelivr.kwcoder.club/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js
+  algolia_search_css: https://jsdelivr.kwcoder.club/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css
 
   # math
-  mathjax: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  katex: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
-  katex_copytex: https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js
-  katex_copytex_css: https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css
-  mermaid: https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+  mathjax: https://jsdelivr.kwcoder.club/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  katex: https://jsdelivr.kwcoder.club/npm/katex@latest/dist/katex.min.css
+  katex_copytex: https://jsdelivr.kwcoder.club/npm/katex-copytex@latest/dist/katex-copytex.min.js
+  katex_copytex_css: https://jsdelivr.kwcoder.club/npm/katex-copytex@latest/dist/katex-copytex.min.css
+  mermaid: https://jsdelivr.kwcoder.club/npm/mermaid/dist/mermaid.min.js
 
   # count
   busuanzi: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
@@ -633,38 +635,42 @@ CDN:
   canvas_ribbon_piao: /js/third-party/piao.js
   canvas_nest: /js/third-party/canvas-nest.js
 
-  lazyload: https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js
-  instantpage: https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js
-  typed: https://cdn.jsdelivr.net/npm/typed.js
-  pangu: https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js
+  lazyload: https://jsdelivr.kwcoder.club/npm/vanilla-lazyload/dist/lazyload.iife.min.js
+  instantpage: https://jsdelivr.kwcoder.club/npm/instant.page/instantpage.min.js
+  typed: https://jsdelivr.kwcoder.club/npm/typed.js
+  pangu: https://jsdelivr.kwcoder.club/npm/pangu/dist/browser/pangu.min.js
 
   # photo
-  fancybox_css: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
-  medium_zoom: https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js
+  fancybox_css: https://jsdelivr.kwcoder.club/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css
+  fancybox: https://jsdelivr.kwcoder.club/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
+  medium_zoom: https://jsdelivr.kwcoder.club/npm/medium-zoom/dist/medium-zoom.min.js
 
   # snackbar
-  snackbar_css: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css
-  snackbar: https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js
+  snackbar_css: https://jsdelivr.kwcoder.club/npm/node-snackbar/dist/snackbar.min.css
+  snackbar: https://jsdelivr.kwcoder.club/npm/node-snackbar/dist/snackbar.min.js
 
   # effect
-  anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js
+  anime: https://jsdelivr.kwcoder.club/npm/animejs@latest/anime.min.js
   activate_power_mode: /js/third-party/activate-power-mode.js
   fireworks: /js/third-party/fireworks.js
   click_heart: /js/third-party/click_heart.js
   ClickShowText: /js/third-party/ClickShowText.js
 
   # fontawesome
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css
+  fontawesome: https://jsdelivr.kwcoder.club/npm/@fortawesome/fontawesome-free/css/all.min.css
 
   # Conversion between Traditional and Simplified Chinese
   translate: /js/tw_cn.js
 
   # justifiedGallery
-  justifiedGallery_js: https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js
-  justifiedGallery_css: https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css
+  justifiedGallery_js: https://jsdelivr.kwcoder.club/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js
+  justifiedGallery_css: https://jsdelivr.kwcoder.club/npm/justifiedGallery/dist/css/justifiedGallery.min.css
 
   # aplayer
-  aplayer_css: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css
-  aplayer_js: https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js
-  meting_js: https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js
+  aplayer_css: https://jsdelivr.kwcoder.club/npm/aplayer/dist/APlayer.min.css
+  aplayer_js: https://jsdelivr.kwcoder.club/npm/aplayer/dist/APlayer.min.js
+  meting_js: https://jsdelivr.kwcoder.club/npm/meting@1.2.0/dist/Meting.min.js
+
+
+live2d:
+  enable: true
