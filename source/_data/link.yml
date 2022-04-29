@@ -13,3 +13,9 @@
       avatar: https://serve-the-people.kwcoder.club/images/icon/icon.png
       descr: 为把我国建设成为富强民主文明和谐美丽的社会主义现代化强国而努力奋斗。
 
+- class_name: 常用工具
+  link_list:
+    - name: Http Bin
+      link: http://httpbin.org/
+      avatar: http://httpbin.org/static/favicon.ico
+      descr: 一个用来测试 HTTP 请求和响应的开源工具。

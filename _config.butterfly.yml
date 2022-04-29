@@ -7,6 +7,7 @@ menu:
   标签: /tags/ || fas fa-tags
   # 分类: /categories/ || fas fa-folder-open
   分类||fas fa-folder-open||hide:
+    所有分类: /categories/ || fas fa-folder-open
     java: /categories/java/ || iconfont icon-java1
     web: /categories/web/ || iconfont icon-http
     其他: /categories/其他/ || iconfont icon-qita
@@ -178,7 +179,7 @@ anchor: true
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
-  enable: true
+  enable: false
   sites: wechat,weibo,qq
 
 # Comments System
