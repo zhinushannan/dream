@@ -19,3 +19,7 @@
       link: http://httpbin.org/
       avatar: http://httpbin.org/static/favicon.ico
       descr: 一个用来测试 HTTP 请求和响应的开源工具。
+    - name: 在线压缩图片
+      link: https://www.bejson.com/ui/compress_img/
+      avatar: https://www.bejson.com/static/bejson/img/qq/bejson-q.png
+      descr: 写博客必备的图片压缩工具，此网站还有其他多种便捷工具。
