@@ -17,7 +17,7 @@ url: https://dream.kwcoder.club
 permalink: :year/:month/:day/:urlname/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_index: true # Set to false to remove trailing 'docker.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
@@ -29,6 +29,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - docker.html
 
 # Writing
 new_post_name: :title.md # File name of new posts
