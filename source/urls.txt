@@ -8,8 +8,11 @@ https://dream.kwcoder.club/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abf
 
 
 https://dream.kwcoder.club/
-
 https://dream.kwcoder.club/urls.txt
+https://dream.kwcoder.club/docker.html
+https://dream.kwcoder.club/css/cavedraw.css
+https://dream.kwcoder.club/npm/valine/dist/Valine.min.js
+
 
 https://dream.kwcoder.club/images/avator.jpg
 https://dream.kwcoder.club/images/backgroud.jpg
@@ -20,6 +23,11 @@ https://dream.kwcoder.club/images/其他/语言类型/cover.png
 https://dream.kwcoder.club/images/其他/butterfly魔改/cover.png
 https://dream.kwcoder.club/images/其他/butterfly魔改/1.post-ui.pug文件.png
 https://dream.kwcoder.club/images/其他/butterfly魔改/2.article-sort.pug文件.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/3.cave-draw效果图.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/4.cave-draw项目地址.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/5.Valine.min.js目录.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/6.js文件修改.png
+https://dream.kwcoder.club/images/其他/butterfly魔改/7.配置文件修改.png
 
 
 https://dream.kwcoder.club/images/web/HTTP请求/http.png
@@ -38,3 +46,5 @@ https://dream.kwcoder.club/2022/04/30/语言类型/
 https://dream.kwcoder.club/2022/04/30/Java%20的内存、堆、栈/
 https://dream.kwcoder.club/2022/05/01/HTTP请求/
 https://dream.kwcoder.club/2022/05/04/Deepin系统打开WiFi就不能开热点？三个步骤解决问题/
+https://dream.kwcoder.club/2022/05/05/butterfly魔改/
+https://dream.kwcoder.club/2022/05/06/Docker暴力入门/

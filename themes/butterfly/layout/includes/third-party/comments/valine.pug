@@ -3,31 +3,25 @@ if site.data.valine
   - emojiMaps = JSON.stringify(site.data.valine)
 
 script.
-  function loadValine () {
-    function initValine () {
-      const valine = new Valine(Object.assign({
-        el: '#vcomment',
-        appId: '#{theme.valine.appId}',
-        appKey: '#{theme.valine.appKey}',
-        avatar: '#{theme.valine.avatar}',
-        serverURLs: '#{theme.valine.serverURLs}',
-        emojiMaps: !{emojiMaps},
-        path: window.location.pathname,
-        visitor: #{theme.valine.visitor}
-      }, !{JSON.stringify(theme.valine.option)}))
-    }
+  new CaveDraw({
+    ele: '#veditor',
+    special: 'valine',
+    openBtn: {
+      style: 'background-color:#b37ba4;color:white;',
+      hoverStyle: 'background-color: #49d0c0;'
+    },
+    canvasStyle: 'cursor:crosshair;background:whitesmoke;/*margin-bottom:5px;border-radius:0px;*/'
+  })
 
-    if (typeof Valine === 'function') initValine() 
-    else getScript('!{url_for(theme.CDN.valine)}').then(initValine)
-  }
-
-  if ('!{theme.comments.use[0]}' === 'Valine' || !!{theme.comments.lazyload}) {
-    if (!{theme.comments.lazyload}) btf.loadComment(document.getElementById('vcomment'),loadValine)
-    else setTimeout(loadValine, 0)
-  } else {
-    function loadOtherComment () {
-      loadValine()
-    }
-  }
-  
+  var valine = new Valine();
+  valine.init({
+    el: '#vcomment',
+    appId: '#{theme.valine.appId}',
+    appKey: '#{theme.valine.appKey}',
+    avatar: '#{theme.valine.avatar}',
+    serverURLs: '#{theme.valine.serverURLs}',
+    emojiMaps: !{emojiMaps},
+    path: window.location.pathname,
+    visitor: #{theme.valine.visitor}
+  });
 
