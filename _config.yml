@@ -14,7 +14,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://dream.kwcoder.club
-permalink: :year/:month/:day/:urlname/
+permalink: p/:urlname/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'docker.html' from permalinks
