@@ -41,10 +41,13 @@ https://dream.kwcoder.club/images/工具/deepin/3-3有线网卡名称.jpg
 https://dream.kwcoder.club/images/工具/deepin/3-4设备冲突.png
 https://dream.kwcoder.club/images/工具/deepin/3-5杀死进程.png
 
-https://dream.kwcoder.club/2022/04/29/Java简介/
-https://dream.kwcoder.club/2022/04/30/语言类型/
-https://dream.kwcoder.club/2022/04/30/Java%20的内存、堆、栈/
-https://dream.kwcoder.club/2022/05/01/HTTP请求/
-https://dream.kwcoder.club/2022/05/04/Deepin系统打开WiFi就不能开热点？三个步骤解决问题/
-https://dream.kwcoder.club/2022/05/05/butterfly魔改/
-https://dream.kwcoder.club/2022/05/06/Docker暴力入门/
+https://dream.kwcoder.club/p/20220429/
+https://dream.kwcoder.club/p/20220430/
+https://dream.kwcoder.club/p/20220501/
+https://dream.kwcoder.club/p/20220502/
+https://dream.kwcoder.club/p/20220503/
+https://dream.kwcoder.club/p/20220504/
+https://dream.kwcoder.club/p/20220505/
+https://dream.kwcoder.club/p/20220506/
+https://dream.kwcoder.club/p/20220507/
+https://dream.kwcoder.club/p/20220508/
