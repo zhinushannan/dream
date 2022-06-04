@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>操作系统概述 | 梦想已故</title><meta name="keywords" content="操作系统"><meta name="author" content="zhinushannan"><meta name="copyright" content="zhinushannan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="定义 从资源管理的观点：操作系统是一个程序集合，是用于控制和管理计算机的软硬件资源、合理地组织计算机的工作流程、方便用户的程序集合。  从用户的观点：操作系统是配置在计算机硬件上的第一层软件，是对硬件系统的第一次扩充。  操作系统的地位：紧贴硬件（裸机）之上，所有其他软件之下。   发展 在以下的讨论中，需要拥有这样两个观念：计算机的工作效率远远大于人；IO操作是人来完成的，即IO的速度等于人的速">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统概述">
+<meta property="og:url" content="https://dream.kwcoder.club/p/20220513/index.html">
+<meta property="og:site_name" content="梦想已故">
+<meta property="og:description" content="定义 从资源管理的观点：操作系统是一个程序集合，是用于控制和管理计算机的软硬件资源、合理地组织计算机的工作流程、方便用户的程序集合。  从用户的观点：操作系统是配置在计算机硬件上的第一层软件，是对硬件系统的第一次扩充。  操作系统的地位：紧贴硬件（裸机）之上，所有其他软件之下。   发展 在以下的讨论中，需要拥有这样两个观念：计算机的工作效率远远大于人；IO操作是人来完成的，即IO的速度等于人的速">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream.kwcoder.club/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1.cover.png">
+<meta property="article:published_time" content="2022-05-13T00:29:07.000Z">
+<meta property="article:modified_time" content="2022-06-03T17:35:29.367Z">
+<meta property="article:author" content="zhinushannan">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream.kwcoder.club/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1.cover.png"><link rel="shortcut icon" href="/images/icon.png"><link rel="canonical" href="https://dream.kwcoder.club/p/20220513/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '操作系统概述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-04 01:35:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3367359_iv6omb2moap.css" ><link rel="stylesheet" href="/css/cavedraw.css" ><script src="https://jsdelivr.kwcoder.club/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script><script src="/npm/valine/dist/Valine.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1.cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">梦想已故</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">操作系统概述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-05-13T00:29:07.000Z" title="发表于 2022-05-13 08:29:07">2022-05-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><ul>
+<li><p><strong>从资源管理的观点：</strong>操作系统是一个程序集合，是用于控制和管理计算机的软硬件资源、合理地组织计算机的工作流程、方便用户的程序集合。</p>
+</li>
+<li><p><strong>从用户的观点：</strong>操作系统是配置在计算机硬件上的第一层软件，是对硬件系统的第一次扩充。</p>
+</li>
+<li><p><strong>操作系统的地位：</strong>紧贴硬件（裸机）之上，所有其他软件之下。</p>
+</li>
+</ul>
+<h1 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h1><blockquote>
+<p>在以下的讨论中，需要拥有这样两个观念：计算机的工作效率远远大于人；IO操作是人来完成的，即IO的速度等于人的速度。</p>
+</blockquote>
+<h2 id="1946年-第一代计算机-没有操作系统"><a href="#1946年-第一代计算机-没有操作系统" class="headerlink" title="1946年 第一代计算机 - 没有操作系统"></a>1946年 第一代计算机 - 没有操作系统</h2><p>在第一代计算机上没有操作系统，对计算机的操作完全是人工操作方式，这种人工操作方式有两个缺点：</p>
+<ul>
+<li>用户完全独占计算机。也就是说，计算机的全部资源只供一个用户使用。</li>
+<li>计算机等待人工操作。当用户操作时计算机要等待，CPU空闲。</li>
+</ul>
+<h2 id="1958年-第二代计算机-监控系统"><a href="#1958年-第二代计算机-监控系统" class="headerlink" title="1958年 第二代计算机 - 监控系统"></a>1958年 第二代计算机 - 监控系统</h2><p>第二代计算机主要用于科学和工程计算，程序大多用<code>FORTRAN</code>语言书写，该语言适用于作数值运算。<br>当时主机上用的控制程序称之为监控程序（Monitor），其功能相对比较简单，监控程序是操作系统的雏形 。</p>
+<h3 id="单道批处理系统（Simple-Batch-System）"><a href="#单道批处理系统（Simple-Batch-System）" class="headerlink" title="单道批处理系统（Simple Batch System）"></a>单道批处理系统（Simple Batch System）</h3><p>单道批处理系统由两台机器组成，用一台价格较低的机器作为<strong>输入&#x2F;输出机</strong>，用一台正常的机器用于运算作为<strong>主机</strong>。<br>将所有的作业用<strong>为输入&#x2F;输出机</strong>输入到磁带上，用<strong>主机</strong>进行运算。<br>大批的作业在<strong>输入&#x2F;输出机</strong>的控制下输入到磁带后，用一个特殊的程序来控制作业的读入和运行，这个特殊的程序叫作业控制语言（JCL，Job Control Language）书写，它能控制程序的运行。</p>
+<p>单道批处理系统使用的是<strong>脱机输入&#x2F;输出技术</strong>，即程序和数据的<strong>输入</strong>都不是在主机的控制之下，而是在一台专门作输入&#x2F;输出的计算机的控制之下进行；换句话说，输入&#x2F;输出工作是在脱离主机的情况之下进行的，故称为脱机输入&#x2F;输出（Off Line I&#x2F;O）。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/操作系统/2操作系统概述/2.脱机输入输出技术.png" style="zoom: 50%;" alt="脱机输入输出技术">
+
+<blockquote>
+<p>意义：</p>
+<ol>
+<li>使用脱机输入&#x2F;输出技术，不占用主机的时间，可以减少CPU的空闲时间。</li>
+<li>提高了输入输出的速度。当CPU需要数据时，直接从磁带机上输入，不需要从低速的I&#x2F;O设备商输入，缓解了CPU与IO设备速度不匹配之间的矛盾。</li>
+</ol>
+</blockquote>
+<h2 id="1964年-第三代计算机-极大发展"><a href="#1964年-第三代计算机-极大发展" class="headerlink" title="1964年 第三代计算机 - 极大发展"></a>1964年 第三代计算机 - 极大发展</h2><p>20世纪60年代中期，产生了多道程序设计。<br>其核心思想是：把多个程序同时放入内存，使他们共享系统中的资源。</p>
+<p>对于单道程序设计，内存中只存在一个程序，当该程序在运行中发出IO请求时，CPU就会处在空闲状态，等待程序IO结束。<br>而在多道程序设计中，由于内存中存在多个程序，当一个程序发出IO请求时，系统可调度使另一程序运行，使CPU始终处于忙碌状态，提高效率。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/操作系统/2操作系统概述/3.多道程序设计.png" style="zoom: 50%;" alt="多道程序设计">
+
+
+
+<h2 id="1974年-第四代计算机-多元化发展"><a href="#1974年-第四代计算机-多元化发展" class="headerlink" title="1974年 第四代计算机 - 多元化发展"></a>1974年 第四代计算机 - 多元化发展</h2><p>随着大规模集成电路（在每平方厘米的芯片上集成数千个晶体管）的发展，计算机向着微型化、网络化和智能化的方向发展。个人计算机的时代到来了。个人计算机连接成了网络。因此运行其上的网络操作系统和分布式操作系统就开始崛起。</p>
+<h2 id="操作系统发展的因素——速度不匹配的矛盾"><a href="#操作系统发展的因素——速度不匹配的矛盾" class="headerlink" title="操作系统发展的因素——速度不匹配的矛盾"></a>操作系统发展的因素——速度不匹配的矛盾</h2><p><strong>主机与外设速度的不匹配。</strong></p>
+<ul>
+<li>通过设置多台外设，以数量弥补速度，产生多道程序设计（第三代）。</li>
+<li>通过提高外设速度。</li>
+<li>在硬件设计方面，产生通道、中断技术（第三代）。</li>
+<li>在软件设计方面，使用缓冲区（Buffer），产生脱机技术。</li>
+</ul>
+<p><strong>计算机与人速度的不匹配。</strong></p>
+<ul>
+<li>设置合理的操作员。第一代计算机的操作员没有分工，每个人负责IO和执行；第二代计算机的操作员分为IO和执行两种。</li>
+<li>减少人工干预。从原始的手工干预，到后来早期的批处理。<ul>
+<li>作业控制卡</li>
+<li>作业控制语言JCL</li>
+<li>FORTRAN语言产生（第二代）</li>
+</ul>
+</li>
+<li>多用户。产生分时系统（第三代）</li>
+</ul>
+<h1 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h1><h2 id="操作系统具有并发性"><a href="#操作系统具有并发性" class="headerlink" title="操作系统具有并发性"></a>操作系统具有并发性</h2><p>操作系统支持两个或两个以上的事物在同一时间间隔内发生，例如我们可以在听歌的同时进行聊天。</p>
+<blockquote>
+<p>补充：并行是指两个或两个以上事物在<strong>同一时刻</strong>发生。</p>
+</blockquote>
+<p>在单处理机环境中，某一时刻CPU上只能运行一个程序。依赖于多道程序设计技术，使得多个程序在一个小的时间间隔内交替执行称为可能，从而实现并发。</p>
+<p>实质上，从宏观上讲，并发是多个程序同时运行的；从微观上讲，程序之间是交替执行的。</p>
+<h2 id="操作系统具有共享性"><a href="#操作系统具有共享性" class="headerlink" title="操作系统具有共享性"></a>操作系统具有共享性</h2><p>在操作系统的统一控制下，可以实现计算机中的各种资源在其上运行的程序共同享用。</p>
+<p>共享有两种方式，分为<strong>互斥共享</strong>和<strong>共同访问</strong>。</p>
+<ul>
+<li>互斥共享——某时间内只允许一个进程访问，该进程访问完了，别人才可访问。如：打印机。</li>
+<li>同时访问——某时间段内，允许多个进程同时访问。如：磁盘。</li>
+</ul>
+<blockquote>
+<p>并发和共享是操作系统中两个最基本的特征，它们互为存在条件：资源的共享以程序的并发执行为条件；资源共享使得程序并发称为可能。<br>以同时访问为例，假设文件管理器和文本编辑器并发执行，文件管理器在读取磁盘上的内容，文本编辑器往磁盘上写入内容。因为这两个程序可以并发，所以才磁盘才能被多个程序共享；也正是因为磁盘能够被多个程序共享，才能允许多个程序同时访问磁盘。</p>
+</blockquote>
+<h2 id="操作系统具有虚拟性"><a href="#操作系统具有虚拟性" class="headerlink" title="操作系统具有虚拟性"></a>操作系统具有虚拟性</h2><p>通过某种技术手段把一个物理上的实体，变成多个逻辑上的对应物。如CPU的物理核心和逻辑核心、内存交换区等。多道程序设计使得虚拟称为可能。</p>
+<h2 id="操作系统具有不确定性"><a href="#操作系统具有不确定性" class="headerlink" title="操作系统具有不确定性"></a>操作系统具有不确定性</h2><p>操作系统具有不确定性，也称随机性，是指系统中各种事件的发生顺序是不确定的。</p>
+<p>在多道程序环境下，进程的执行是并发执行的，在微观上是交替执行的，人们无法对某一时刻究竟是执行哪一个程序做出预测。</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>操作系统具有进程管理、存储管理、设备管理、文件管理和操作系统接口五大功能。</p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>进程管理又称为处理机管理，其主要目的是提高CPU的利用率。</p>
+<p><strong>主要任务：</strong></p>
+<ul>
+<li>对处理机的分配和运行实施有效管理。 </li>
+<li>在多道程序环境下，处理机的分配和运行以进程为单位，因此对处理机的管理即对进程的管理。</li>
+</ul>
+<p><strong>主要功能：</strong></p>
+<ul>
+<li>进程控制 </li>
+<li>进程同步 </li>
+<li>进程通信</li>
+<li>进程调度</li>
+</ul>
+<h2 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h2><p>存储管理要管理的资源是内存储器（即内存）。</p>
+<p><strong>主要任务：</strong></p>
+<ul>
+<li>方便用户使用内存</li>
+<li>提高内存的利用率</li>
+<li>从逻辑上扩充内存</li>
+</ul>
+<p><strong>主要功能：</strong></p>
+<ul>
+<li>内存分配 </li>
+<li>地址映射 </li>
+<li>内存保护 </li>
+<li>内存扩充</li>
+</ul>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><p>在设备管理中涉及很多实际物理设备，品种繁多、用法各异；各种外部设备都能与主机并行工作，有的设备还能被多个程序共享；主机与外部设备的速度极不匹配，相差几个数量级甚至更大。<br>设备管理是用来管理计算机各种硬件，是操作系统中最庞杂、最琐碎的部分。</p>
+<p><strong>主要任务：</strong></p>
+<ul>
+<li>完成用户程序请求的I&#x2F;O操作，为用户程序分配I&#x2F;O设备</li>
+<li>提高外部设备的利用 </li>
+<li>尽可能地提高输入&#x2F;输出的速度 </li>
+<li>方便用户使用外部设备</li>
+</ul>
+<p><strong>主要功能：</strong></p>
+<ul>
+<li>设备分配</li>
+<li>设备控制</li>
+<li>设备无关性</li>
+</ul>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>程序和数据等信息是以文件的形式存处在计算机中的，所以文件管理也称为信息资源管理，其主要功能是向用户提供一种简便、统一的存取和管理信息的方法，并同时解决信息的共享、安全保密等问题。</p>
+<p><strong>主要功能：</strong></p>
+<ul>
+<li>文件存储空间的管理</li>
+<li>目录管理</li>
+<li>文件的读、写管理</li>
+<li>文件的存取控制</li>
+</ul>
+<h2 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h2><p>为了方便用户的使用，操作系统提供用户与操作系统的接口，分为命令接口和程序接口。</p>
+<p><strong>命令接口：</strong></p>
+<ul>
+<li>联机命令接口</li>
+<li>脱机命令接口</li>
+<li>图形用户界面（命令接口的改版）</li>
+</ul>
+<p><strong>程序接口</strong>也被称为系统调用，是为用户能在程序一级访问操作系统功能而设置的，是用户程序取得操作系统服务的唯一途径。</p>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><h2 id="成熟的"><a href="#成熟的" class="headerlink" title="成熟的"></a>成熟的</h2><h3 id="批处理系统"><a href="#批处理系统" class="headerlink" title="批处理系统"></a>批处理系统</h3><ul>
+<li><p>单道批处理系统：内存中仅放一道作业，作业的完成顺序与进驻内存的顺序相关。</p>
+</li>
+<li><p>多道批处理系统：内存中放多道作业，作业的完成顺序与进驻内存的顺序无严格对应关系</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>资源利用率高</li>
+<li>系统吞吐量大</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>平均周转时间长</li>
+<li>无交互能力</li>
+</ul>
+</li>
+</ul>
+<p>实例：DOS&#x2F;VSE</p>
+<h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h3><p>允许多个终端用户同时使用计算机，在这样的系统中，用户感觉不到其他用户的存在，好象独占计算机一样。</p>
+<p>类型</p>
+<ul>
+<li>简单分时系统 </li>
+<li>具有前后台的分时系统 </li>
+<li>多道分时系统</li>
+</ul>
+<p>特征</p>
+<ul>
+<li>多路性</li>
+<li>独立性</li>
+<li>交互性</li>
+<li>及时性</li>
+</ul>
+<p>实例：OS&#x2F;360Multics</p>
+<h3 id="实时系统"><a href="#实时系统" class="headerlink" title="实时系统"></a>实时系统</h3><p>对外部输入的信息，实时系统能够在规定的时间内处理完毕并作出反应。</p>
+<p>类型</p>
+<ul>
+<li>闭环——实时控制系统</li>
+<li>开环——实时信息处理系统</li>
+</ul>
+<p>特殊要求</p>
+<ul>
+<li>高可靠性</li>
+<li>过载保护</li>
+<li>对截止时间的要求</li>
+</ul>
+<p>实例：QNX  VxWorks  RTLinux</p>
+<h2 id="发展中的"><a href="#发展中的" class="headerlink" title="发展中的"></a>发展中的</h2><h3 id="微机操作系统"><a href="#微机操作系统" class="headerlink" title="微机操作系统"></a>微机操作系统</h3><ul>
+<li>CP&#x2F;M 操作系统 </li>
+<li>MS-DOS 操作系统 </li>
+<li>OS&#x2F;2  操作系统 </li>
+<li>Windows 操作系统 </li>
+<li>UNIX及类UNIX 操作系统 <ul>
+<li>Solaris	 </li>
+<li>SVR4</li>
+<li>SCO OpenServer</li>
+<li>SCO Unix Ware 7</li>
+<li>Xenix</li>
+<li>Linux</li>
+</ul>
+</li>
+<li>Mac OS X操作系统</li>
+</ul>
+<h3 id="多处理机操作系统"><a href="#多处理机操作系统" class="headerlink" title="多处理机操作系统"></a>多处理机操作系统</h3><p>引入原因</p>
+<ul>
+<li>增加系统吞吐量</li>
+<li>节省投资</li>
+<li>提高系统可靠性</li>
+</ul>
+<p>多处理机OS类型</p>
+<ul>
+<li>非对称多处理模式——主-从模式</li>
+<li>对称多处理模式——独立管理模式</li>
+</ul>
+<h3 id="网络操作系统"><a href="#网络操作系统" class="headerlink" title="网络操作系统"></a>网络操作系统</h3><ul>
+<li>客户&#x2F;服务器模式——Client&#x2F;server</li>
+<li>对等模式——Peer to Peer</li>
+</ul>
+<p>网络OS功能</p>
+<ul>
+<li>网络通信</li>
+<li>资源共享管理</li>
+<li>网络服务</li>
+<li>网络管理</li>
+<li>互操作能力</li>
+</ul>
+<h3 id="分布式操作系统"><a href="#分布式操作系统" class="headerlink" title="分布式操作系统"></a>分布式操作系统</h3><p>分布式系统是由若干个计算机经互连网络连接而成的，这些计算机既可以独立工作，又能协同工作。可实现系统内的资源管理，任务动态分配，并能并行地运行分布式程序。</p>
+<p>特点</p>
+<ul>
+<li>多机合作</li>
+<li>健壮性</li>
+<li>透明性</li>
+<li>共享性</li>
+</ul>
+<h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><p>计算机发展的趋势之一是体积越来越小，掌上电脑和嵌入式系统随机出现。掌上电脑也称PDA </p>
+<p>嵌入式计算机，顾名思义即将计算机嵌入到其他设备上，这些设备无处不在，大到汽车发动机、机器人，小到电视机、微波炉、移动电话。运行在其上的操作系统比较简单，只实现所要求的控制功能。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/20220514/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/1.cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">进程与线程</div></div></a></div><div class="next-post pull-right"><a href="/p/20220512/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1-1cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机系统概述</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">zhinushannan</div><div class="author-info__description">梦想将故</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhinushannan/"><i class="fab fa-github"></i><span>Follow me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zhinushannan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zhinushannan@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E5%B1%95"><span class="toc-number">2.</span> <span class="toc-text">发展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1946%E5%B9%B4-%E7%AC%AC%E4%B8%80%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA-%E6%B2%A1%E6%9C%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.</span> <span class="toc-text">1946年 第一代计算机 - 没有操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1958%E5%B9%B4-%E7%AC%AC%E4%BA%8C%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA-%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.2.</span> <span class="toc-text">1958年 第二代计算机 - 监控系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88Simple-Batch-System%EF%BC%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">单道批处理系统（Simple Batch System）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1964%E5%B9%B4-%E7%AC%AC%E4%B8%89%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA-%E6%9E%81%E5%A4%A7%E5%8F%91%E5%B1%95"><span class="toc-number">2.3.</span> <span class="toc-text">1964年 第三代计算机 - 极大发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1974%E5%B9%B4-%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA-%E5%A4%9A%E5%85%83%E5%8C%96%E5%8F%91%E5%B1%95"><span class="toc-number">2.4.</span> <span class="toc-text">1974年 第四代计算机 - 多元化发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E7%9A%84%E5%9B%A0%E7%B4%A0%E2%80%94%E2%80%94%E9%80%9F%E5%BA%A6%E4%B8%8D%E5%8C%B9%E9%85%8D%E7%9A%84%E7%9F%9B%E7%9B%BE"><span class="toc-number">2.5.</span> <span class="toc-text">操作系统发展的因素——速度不匹配的矛盾</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81"><span class="toc-number">3.</span> <span class="toc-text">操作系统的特征</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%B7%E6%9C%89%E5%B9%B6%E5%8F%91%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">操作系统具有并发性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%B7%E6%9C%89%E5%85%B1%E4%BA%AB%E6%80%A7"><span class="toc-number">3.2.</span> <span class="toc-text">操作系统具有共享性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%B7%E6%9C%89%E8%99%9A%E6%8B%9F%E6%80%A7"><span class="toc-number">3.3.</span> <span class="toc-text">操作系统具有虚拟性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%B7%E6%9C%89%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="toc-number">3.4.</span> <span class="toc-text">操作系统具有不确定性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">4.</span> <span class="toc-text">功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">存储管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-number">4.3.</span> <span class="toc-text">设备管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3"><span class="toc-number">4.5.</span> <span class="toc-text">操作系统接口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E7%86%9F%E7%9A%84"><span class="toc-number">5.1.</span> <span class="toc-text">成熟的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.1.1.</span> <span class="toc-text">批处理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.1.2.</span> <span class="toc-text">分时系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.1.3.</span> <span class="toc-text">实时系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E4%B8%AD%E7%9A%84"><span class="toc-number">5.2.</span> <span class="toc-text">发展中的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.2.1.</span> <span class="toc-text">微机操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%A4%84%E7%90%86%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.2.2.</span> <span class="toc-text">多处理机操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.2.3.</span> <span class="toc-text">网络操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.2.4.</span> <span class="toc-text">分布式操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.2.5.</span> <span class="toc-text">嵌入式操作系统</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%B7%A5%E5%85%B7/mac/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"/></a><div class="content"><a class="title" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker">Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker</a><time datetime="2022-06-04T00:29:07.000Z" title="发表于 2022-06-04 08:29:07">2022-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220529/" title="Docker网络（未完成）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E8%BF%90%E7%BB%B4/Docker/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker网络（未完成）"/></a><div class="content"><a class="title" href="/p/20220529/" title="Docker网络（未完成）">Docker网络（未完成）</a><time datetime="2022-05-29T00:29:07.000Z" title="发表于 2022-05-29 08:29:07">2022-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220515/" title="Java多线程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/1.cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java多线程"/></a><div class="content"><a class="title" href="/p/20220515/" title="Java多线程">Java多线程</a><time datetime="2022-05-15T00:29:07.000Z" title="发表于 2022-05-15 08:29:07">2022-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By zhinushannan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://jsdelivr.kwcoder.club/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://jsdelivr.kwcoder.club/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://jsdelivr.kwcoder.club/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://jsdelivr.kwcoder.club/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>new CaveDraw({
+  ele: '#veditor',
+  special: 'valine',
+  openBtn: {
+    style: 'background-color:#b37ba4;color:white;',
+    hoverStyle: 'background-color: #49d0c0;'
+  },
+  canvasStyle: 'cursor:crosshair;background:whitesmoke;/*margin-bottom:5px;border-radius:0px;*/'
+})
+
+var valine = new Valine();
+valine.init({
+  el: '#vcomment',
+  appId: '1sAcEuvKSBgfYxRJpXU3QMKE-MdYXbMMI',
+  appKey: 'WVHuElCrdb2Tquwe9OFjFExP',
+  avatar: 'monsterid',
+  serverURLs: 'https://1saceuvk.api.lncldglobal.com',
+  emojiMaps: "",
+  path: window.location.pathname,
+  visitor: false
+});</script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="/js/third-party/canvas-nest.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body></html>

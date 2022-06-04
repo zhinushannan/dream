@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python爬虫——简易模拟登录【以科文学院教务官网为例】 | 梦想已故</title><meta name="keywords" content="python,爬虫,模拟登录,requests"><meta name="author" content="zhinushannan"><meta name="copyright" content="zhinushannan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="实战：对科文教务系统进行拦截  科文学院教务系统内网地址：http:&#x2F;&#x2F;10.110.240.221&#x2F;jsxsd&#x2F; 进入官网后再打开拦截。   输入一个错误的账号密码进行试探。 点击登陆按钮，进行拦截，可以拦截到如下信息： 12345678910111213141516POST &#x2F;jsxsd&#x2F;xk&#x2F;LoginToXk HTTP&#x2F;1.1Host: 10.110.240.221User-Agent:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫——简易模拟登录【以科文学院教务官网为例】">
+<meta property="og:url" content="https://dream.kwcoder.club/p/20220511/index.html">
+<meta property="og:site_name" content="梦想已故">
+<meta property="og:description" content="实战：对科文教务系统进行拦截  科文学院教务系统内网地址：http:&#x2F;&#x2F;10.110.240.221&#x2F;jsxsd&#x2F; 进入官网后再打开拦截。   输入一个错误的账号密码进行试探。 点击登陆按钮，进行拦截，可以拦截到如下信息： 12345678910111213141516POST &#x2F;jsxsd&#x2F;xk&#x2F;LoginToXk HTTP&#x2F;1.1Host: 10.110.240.221User-Agent:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream.kwcoder.club/images/web/HTTP%E8%AF%B7%E6%B1%82/1-1%E7%A7%91%E6%96%87%E6%95%99%E5%8A%A1cover.png">
+<meta property="article:published_time" content="2022-05-11T00:29:07.000Z">
+<meta property="article:modified_time" content="2022-06-03T17:35:29.366Z">
+<meta property="article:author" content="zhinushannan">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="模拟登录">
+<meta property="article:tag" content="requests">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream.kwcoder.club/images/web/HTTP%E8%AF%B7%E6%B1%82/1-1%E7%A7%91%E6%96%87%E6%95%99%E5%8A%A1cover.png"><link rel="shortcut icon" href="/images/icon.png"><link rel="canonical" href="https://dream.kwcoder.club/p/20220511/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python爬虫——简易模拟登录【以科文学院教务官网为例】',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-06-04 01:35:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3367359_iv6omb2moap.css" ><link rel="stylesheet" href="/css/cavedraw.css" ><script src="https://jsdelivr.kwcoder.club/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script><script src="/npm/valine/dist/Valine.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/python/%E7%88%AC%E8%99%AB/1-1%E7%A7%91%E6%96%87%E6%95%99%E5%8A%A1cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">梦想已故</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python爬虫——简易模拟登录【以科文学院教务官网为例】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-05-11T00:29:07.000Z" title="发表于 2022-05-11 08:29:07">2022-05-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>实战：对科文教务系统进行拦截</p>
+</blockquote>
+<p>科文学院教务系统内网地址：<a target="_blank" rel="noopener" href="http://10.110.240.221/jsxsd/">http://10.110.240.221/jsxsd/</a></p>
+<p>进入官网后再打开拦截。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/python/爬虫/1-2错误密码试探.png" alt="错误密码试探" style="zoom:50%;">
+
+<p>输入一个错误的账号密码进行试探。</p>
+<p>点击登陆按钮，进行拦截，可以拦截到如下信息：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/jsxsd/xk/LoginToXk</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>10.110.240.221</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (X11; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line"><span class="attribute">Accept-Language</span><span class="punctuation">: </span>zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line"><span class="attribute">Accept-Encoding</span><span class="punctuation">: </span>gzip, deflate</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>80</span><br><span class="line"><span class="attribute">Origin</span><span class="punctuation">: </span>http://10.110.240.221</span><br><span class="line"><span class="attribute">DNT</span><span class="punctuation">: </span>1</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>close</span><br><span class="line"><span class="attribute">Referer</span><span class="punctuation">: </span>http://10.110.240.221/jsxsd/</span><br><span class="line"><span class="attribute">Cookie</span><span class="punctuation">: </span>bzb_jsxsd=253F34A9C34D3A2849F560D88B8EF476; SERVERID=121; bzb_njw=359C682BAE9C81FDC16D469CF9DFEAD5</span><br><span class="line"><span class="attribute">Upgrade-Insecure-Requests</span><span class="punctuation">: </span>1</span><br><span class="line"></span><br><span class="line"><span class="language-apache"><span class="attribute">loginMethod</span>=LoginToXk&amp;userAccount=<span class="number">123</span>&amp;userPassword=<span class="number">123</span>&amp;encoded=MTIz%<span class="number">25</span>%<span class="number">25</span>%<span class="number">25</span>MTIz</span></span><br></pre></td></tr></table></figure>
+
+<p>从所获取的信息中可以得知，登录的接口是<code>POST</code>请求<code>http://10.110.240.221/jsxsd/xk/LoginToXk</code>，传输的数据有：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">loginMethod</td>
+<td align="center">LoginToXk</td>
+</tr>
+<tr>
+<td align="center">userAccount</td>
+<td align="center">123</td>
+</tr>
+<tr>
+<td align="center">userPassword</td>
+<td align="center">123</td>
+</tr>
+<tr>
+<td align="center">encoded</td>
+<td align="center">MTIz%25%25%25MTIz</td>
+</tr>
+</tbody></table>
+<p>通过重复实验，发现<code>loginMethod</code>的参数值是固定的，同时<code>userAccount</code>和<code>userPassword</code>的值就是账号密码的明文，而<code>encoded</code>参数随着账号密码的变化而变化，而相同的账号密码的<code>encoded</code>值是相同的，因此判断<code>encoded</code>参数值通过对账号密码依据某种规则进行加密得来的，在前端加密，只有通过<code>js</code>的方式，因此只要获取到响应的<code>js</code>函数，即可破解密码，从而实现模拟登录。</p>
+<p>使用<code>Burp</code>工具无法获得异步请求的静态文件。打开浏览器的控制台网络模块，刷新页面，得到如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/python/%E7%88%AC%E8%99%AB/1-3%E7%A7%91%E6%96%87%E6%95%99%E5%8A%A1%E5%AE%98%E7%BD%91.png" alt="科文教务官网.png"></p>
+<p>其中<code>js</code>文件有<code>jquery.min.js</code>、<code>jquery-1.11.1.min.js</code>、<code>bootstrap.min.js</code>、<code>conwork.js</code>、<code>layui.all.js</code>，其中<code>jquery</code>、<code>bootstrap</code>、<code>layui</code>都是非常出名的非加密用途的<code>js</code>库，从而怀疑<code>conwork.js</code>。</p>
+<p>获取此响应，得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval(function(p,a,c,k,e,d)&#123;e=function(c)&#123;return(c&lt;a?&quot;&quot;:e(parseInt(c/a)))+((c=c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))&#125;;if(!&#x27;&#x27;.replace(/^/,String))&#123;while(c--)d[e(c)]=k[c]||e(c);k=[function(e)&#123;return d[e]&#125;];e=function()&#123;return&#x27;\\w+&#x27;&#125;;c=1;&#125;;while(c--)if(k[c])p=p.replace(new RegExp(&#x27;\\b&#x27;+e(c)+&#x27;\\b&#x27;,&#x27;g&#x27;),k[c]);return p;&#125;(&#x27;b 9=&quot;o+/=&quot;;p q(a)&#123;b e=&quot;&quot;;b 8,5,7=&quot;&quot;;b f,g,c,1=&quot;&quot;;b i=0;m&#123;8=a.h(i++);5=a.h(i++);7=a.h(i++);f=8&gt;&gt;2;g=((8&amp;3)&lt;&lt;4)|(5&gt;&gt;4);c=((5&amp;s)&lt;&lt;2)|(7&gt;&gt;6);1=7&amp;t;k(j(5))&#123;c=1=l&#125;v k(j(7))&#123;1=l&#125;e=e+9.d(f)+9.d(g)+9.d(c)+9.d(1);8=5=7=&quot;&quot;;f=g=c=1=&quot;&quot;&#125;u(i&lt;a.n);r e&#125;&#x27;,32,32,&#x27;|enc4||||chr2||chr3|chr1|keyStr|input|var|enc3|charAt|output|enc1|enc2|charCodeAt||isNaN|if|64|do|length|ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789|function|encodeInp|return|15|63|while|else&#x27;.split(&#x27;|&#x27;),0,&#123;&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>这是一个加密后的<code>js</code>文件，使用工具对其进行解密：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var keyStr = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot;;</span><br><span class="line">function encodeInp(input) &#123;</span><br><span class="line">    var output = &quot;&quot;;</span><br><span class="line">    var chr1, chr2, chr3 = &quot;&quot;;</span><br><span class="line">    var enc1, enc2, enc3, enc4 = &quot;&quot;;</span><br><span class="line">    var i = 0;</span><br><span class="line">    do &#123;</span><br><span class="line">        chr1 = input.charCodeAt(i++);</span><br><span class="line">        chr2 = input.charCodeAt(i++);</span><br><span class="line">        chr3 = input.charCodeAt(i++);</span><br><span class="line">        enc1 = chr1 &gt;&gt; 2;</span><br><span class="line">        enc2 = ((chr1 &amp; 3) &lt;&lt; 4) | (chr2 &gt;&gt; 4);</span><br><span class="line">        enc3 = ((chr2 &amp; 15) &lt;&lt; 2) | (chr3 &gt;&gt; 6);</span><br><span class="line">        enc4 = chr3 &amp; 63;</span><br><span class="line">        if (isNaN(chr2)) &#123;</span><br><span class="line">            enc3 = enc4 = 64</span><br><span class="line">        &#125; else if (isNaN(chr3)) &#123;</span><br><span class="line">            enc4 = 64</span><br><span class="line">        &#125;</span><br><span class="line">        output = output + keyStr.charAt(enc1) + keyStr.charAt(enc2) + keyStr.charAt(enc3) + keyStr.charAt(enc4);</span><br><span class="line">        chr1 = chr2 = chr3 = &quot;&quot;;</span><br><span class="line">        enc1 = enc2 = enc3 = enc4 = &quot;&quot;</span><br><span class="line">    &#125; while ( i &lt; input . length );</span><br><span class="line">    return output</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过测试，确认该文件就是加密文件。</p>
+<p>后通过<code>python</code>进行爬虫，成功使用<code>requests</code>模块实现模拟登录。</p>
+<p>启示：</p>
+<p>科文学院教务官网毫无安全性可言，很容易发生不可挽回的可怕后果，通过对<code>bilibili</code>、<code>网易</code>两大互联网公司的网站进行类似的模拟操作，明显可以发现科文学院教务官网的不足之处。</p>
+<p>在上述两大互联网公司的网站中，常见的安全手段有：</p>
+<ol>
+<li>通过放置大量的没有用的静态文件，加大破解者的工作量。</li>
+<li>通过设置大量静态文件，每次访问时随机加载一定数量的静态文件，达到每次访问都会收到不同的静态文件的目的，来干扰破解者。</li>
+<li>通过放置多个加密函数，而不是只传输一个加密函数，让破解者在寻找对应函数的时候耗费大量精力。</li>
+<li>通过对加密函数的函数名非正常化，例如科文教务的加密函数叫<code>encodeInp</code>，可以重命名为<code>login</code>，以迷惑破解者，甚至可以让破解者直接忽略此函数。</li>
+<li>通过设置图形验证码。</li>
+<li>使用非对称加密。</li>
+</ol>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a><a class="post-meta__tags" href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a><a class="post-meta__tags" href="/tags/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95/">模拟登录</a><a class="post-meta__tags" href="/tags/requests/">requests</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/20220512/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/1-1cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机系统概述</div></div></a></div><div class="next-post pull-right"><a href="/p/20220510/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%85%B6%E4%BB%96/async%E9%AD%94%E6%94%B9/cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【源码级】async魔改</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">zhinushannan</div><div class="author-info__description">梦想将故</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhinushannan/"><i class="fab fa-github"></i><span>Follow me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zhinushannan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zhinushannan@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%B7%A5%E5%85%B7/mac/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"/></a><div class="content"><a class="title" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker">Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker</a><time datetime="2022-06-04T00:29:07.000Z" title="发表于 2022-06-04 08:29:07">2022-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220529/" title="Docker网络（未完成）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E8%BF%90%E7%BB%B4/Docker/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker网络（未完成）"/></a><div class="content"><a class="title" href="/p/20220529/" title="Docker网络（未完成）">Docker网络（未完成）</a><time datetime="2022-05-29T00:29:07.000Z" title="发表于 2022-05-29 08:29:07">2022-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220515/" title="Java多线程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/1.cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java多线程"/></a><div class="content"><a class="title" href="/p/20220515/" title="Java多线程">Java多线程</a><time datetime="2022-05-15T00:29:07.000Z" title="发表于 2022-05-15 08:29:07">2022-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By zhinushannan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://jsdelivr.kwcoder.club/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://jsdelivr.kwcoder.club/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://jsdelivr.kwcoder.club/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://jsdelivr.kwcoder.club/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>new CaveDraw({
+  ele: '#veditor',
+  special: 'valine',
+  openBtn: {
+    style: 'background-color:#b37ba4;color:white;',
+    hoverStyle: 'background-color: #49d0c0;'
+  },
+  canvasStyle: 'cursor:crosshair;background:whitesmoke;/*margin-bottom:5px;border-radius:0px;*/'
+})
+
+var valine = new Valine();
+valine.init({
+  el: '#vcomment',
+  appId: '1sAcEuvKSBgfYxRJpXU3QMKE-MdYXbMMI',
+  appKey: 'WVHuElCrdb2Tquwe9OFjFExP',
+  avatar: 'monsterid',
+  serverURLs: 'https://1saceuvk.api.lncldglobal.com',
+  emojiMaps: "",
+  path: window.location.pathname,
+  visitor: false
+});</script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="/js/third-party/canvas-nest.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body></html>

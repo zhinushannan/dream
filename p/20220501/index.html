@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HTTP请求 | 梦想已故</title><meta name="keywords" content="web,HTTP请求"><meta name="author" content="zhinushannan"><meta name="copyright" content="zhinushannan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引出HTTP是超文本传输协议，其定义了客户端与服务器端之间文本传输的规范。HTTP默认使用80端口，当我们没有指定端口访问时，浏览器会默认帮我们添加80端口。我们也可以自己指定访问端口如：http:&#x2F;&#x2F;dream.kwcoder.club:80。如果使用了https协议且开启强制跳转，将会自动跳转到https:&#x2F;&#x2F;dream.kwcoder.club&#x2F;现在大多数访问都使用了HTTPS协议，而HTT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP请求">
+<meta property="og:url" content="https://dream.kwcoder.club/p/20220501/index.html">
+<meta property="og:site_name" content="梦想已故">
+<meta property="og:description" content="引出HTTP是超文本传输协议，其定义了客户端与服务器端之间文本传输的规范。HTTP默认使用80端口，当我们没有指定端口访问时，浏览器会默认帮我们添加80端口。我们也可以自己指定访问端口如：http:&#x2F;&#x2F;dream.kwcoder.club:80。如果使用了https协议且开启强制跳转，将会自动跳转到https:&#x2F;&#x2F;dream.kwcoder.club&#x2F;现在大多数访问都使用了HTTPS协议，而HTT">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dream.kwcoder.club/images/web/HTTP%E8%AF%B7%E6%B1%82/http.png">
+<meta property="article:published_time" content="2022-05-01T00:29:07.000Z">
+<meta property="article:modified_time" content="2022-06-03T17:35:29.366Z">
+<meta property="article:author" content="zhinushannan">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="HTTP请求">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dream.kwcoder.club/images/web/HTTP%E8%AF%B7%E6%B1%82/http.png"><link rel="shortcut icon" href="/images/icon.png"><link rel="canonical" href="https://dream.kwcoder.club/p/20220501/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://jsdelivr.kwcoder.club/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HTTP请求',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-04 01:35:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3367359_iv6omb2moap.css" ><link rel="stylesheet" href="/css/cavedraw.css" ><script src="https://jsdelivr.kwcoder.club/gh/flatblowfish/cave-draw/dist/cave-draw.min.js"></script><script src="/npm/valine/dist/Valine.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/web/HTTP%E8%AF%B7%E6%B1%82/http.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">梦想已故</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTTP请求</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-05-01T00:29:07.000Z" title="发表于 2022-05-01 08:29:07">2022-05-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web/">web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="引出"><a href="#引出" class="headerlink" title="引出"></a>引出</h1><p>HTTP是超文本传输协议，其定义了客户端与服务器端之间文本传输的规范。HTTP默认使用80端口，当我们没有指定端口访问时，浏览器会默认帮我们添加80端口。我们也可以自己指定访问端口如：<code>http://dream.kwcoder.club:80</code>。<br>如果使用了https协议且开启强制跳转，将会自动跳转到<code>https://dream.kwcoder.club/</code><br>现在大多数访问都使用了HTTPS协议，而HTTPS的默认端口为443，如果使用80端口访问HTTPS协议的服务器可能会被拒绝。</p>
+<h1 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h1><p>HTTP&#x2F;1.1协议中共定义了八种方法，来表明Request-URL指定的资源不同的操作方式。<br>HTTP1.0定义了三种请求方法：GET, POST 和 HEAD方法。<br>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GET</td>
+<td align="left">请求指定的页面信息，并返回实体主体。</td>
+</tr>
+<tr>
+<td align="center">HEAD</td>
+<td align="left">类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头。</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="left">向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和&#x2F;或已有资源的修改。</td>
+</tr>
+<tr>
+<td align="center">PUT</td>
+<td align="left">从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="left">请求服务器删除指定的页面。</td>
+</tr>
+<tr>
+<td align="center">CONNECT</td>
+<td align="left">HTTP&#x2F;1.1 协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td align="center">OPTIONS</td>
+<td align="left">允许客户端查看服务器的性能。</td>
+</tr>
+<tr>
+<td align="center">TRACE</td>
+<td align="left">回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+<tr>
+<td align="center">PATCH</td>
+<td align="left">是对 PUT 方法的补充，用来对已知资源进行局部更新。</td>
+</tr>
+</tbody></table>
+<h1 id="HTTP响应状态码"><a href="#HTTP响应状态码" class="headerlink" title="HTTP响应状态码"></a>HTTP响应状态码</h1><p>向服务器发送一个请求后，服务器会给客户端一个响应，并通过相应状态码来标识响应状态。</p>
+<table>
+<thead>
+<tr>
+<th align="center">状态码</th>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">200</td>
+<td align="left">OK</td>
+<td align="left">当您的操作将在响应正文中返回数据时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">204</td>
+<td align="left">No Content</td>
+<td align="left">当您的操作成功，但不在响应正文中返回数据时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">304</td>
+<td align="left">Not Modified（重定向）</td>
+<td align="left">当测试实体自上次检索以来是否被修改时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">403</td>
+<td align="left">Forbidden</td>
+<td align="left">客户端错误</td>
+</tr>
+<tr>
+<td align="center">401</td>
+<td align="left">Unauthorized</td>
+<td align="left">客户端错误</td>
+</tr>
+<tr>
+<td align="center">413</td>
+<td align="left">Payload Too Large（客户端错误）</td>
+<td align="left">当请求长度过长时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">400</td>
+<td align="left">BadRequest（客户端错误）</td>
+<td align="left">当参数无效时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">404</td>
+<td align="left">Not Found（客户端错误）</td>
+<td align="left">当资源不存在时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">405</td>
+<td align="left">Method Not Allowed（客户端错误）</td>
+<td align="left">由于方法和资源组合不正确而出现此错误。 例如，您不能对一个实体集合使用 DELETE 或 PATCH。</td>
+</tr>
+<tr>
+<td align="center">412</td>
+<td align="left">Precondition Failed</td>
+<td align="left">客户端错误</td>
+</tr>
+<tr>
+<td align="center">501</td>
+<td align="left">Not Implemented（服务器错误）</td>
+<td align="left">当未实施某个请求的操作时，出现此结果。</td>
+</tr>
+<tr>
+<td align="center">503</td>
+<td align="left">Service Unavailable（服务器错误）</td>
+<td align="left">当 Web API 服务不可用时，出现此结果。</td>
+</tr>
+</tbody></table>
+<h1 id="httpbin工具"><a href="#httpbin工具" class="headerlink" title="httpbin工具"></a>httpbin工具</h1><h2 id="httpbin是什么？"><a href="#httpbin是什么？" class="headerlink" title="httpbin是什么？"></a>httpbin是什么？</h2><p>httpbin是一个用Flask框架编写的开源项目。<br>该网站能测试HTTP请求和响应的各种信息，比如cookie、ip、headers和登录验证等，且支持GET、POST等多种方法，对web开发和测试很有帮助。<br>官方网站：<a target="_blank" rel="noopener" href="http://httpbin.org/">http://httpbin.org/</a><br>开源地址：<a target="_blank" rel="noopener" href="https://github.com/Runscope/httpbin">https://github.com/Runscope/httpbin</a><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/web/HTTP请求/httpbin官网.png" alt="httpbin官网" style="zoom:80%;"></p>
+<h2 id="可用API"><a href="#可用API" class="headerlink" title="可用API"></a>可用API</h2><p>kttpbin中的支持的API涉及HTTP请求方法、请求权限、响应状态码、Cookie等多种API，可用范围如下图所示。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/web/HTTP请求/httpbin可用API.png" alt="httpbin可用API" style="zoom:80%;"></p>
+<p>以GET方法为例，对<a target="_blank" rel="noopener" href="https://httpbin.org/get">https://httpbin.org/get</a>地址进行请求，可以得到如下响应数据：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    </span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;headers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Accept&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Accept-Encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gzip, deflate, br&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Accept-Language&quot;</span><span class="punctuation">:</span> <span class="string">&quot;zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Host&quot;</span><span class="punctuation">:</span> <span class="string">&quot;httpbin.org&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Ch-Ua&quot;</span><span class="punctuation">:</span> <span class="string">&quot;\&quot; Not A;Brand\&quot;;v=\&quot;99\&quot;, \&quot;Chromium\&quot;;v=\&quot;99\&quot;, \&quot;Google Chrome\&quot;;v=\&quot;99\&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Ch-Ua-Mobile&quot;</span><span class="punctuation">:</span> <span class="string">&quot;?0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Ch-Ua-Platform&quot;</span><span class="punctuation">:</span> <span class="string">&quot;\&quot;Linux\&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Fetch-Dest&quot;</span><span class="punctuation">:</span> <span class="string">&quot;document&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Fetch-Mode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;navigate&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Fetch-Site&quot;</span><span class="punctuation">:</span> <span class="string">&quot;none&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Sec-Fetch-User&quot;</span><span class="punctuation">:</span> <span class="string">&quot;?1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;Upgrade-Insecure-Requests&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;User-Agent&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;X-Amzn-Trace-Id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Root=1-626b6aad-3254844a2ffa93953eb0bbe9&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;origin&quot;</span><span class="punctuation">:</span> <span class="string">&quot;35.78.203.43&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://httpbin.org/get&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：在HTTP Methods的API中，除了GET请求可以通过浏览器直接访问外，其余请求均需要通过测试软件进行测试。</strong></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/HTTP%E8%AF%B7%E6%B1%82/">HTTP请求</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/20220502/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%B7%A5%E5%85%B7/deepin/1.cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【转载】Deepin 20.5系统外接扩展屏幕不显示？安装配置NVIDIA显卡驱动</div></div></a></div><div class="next-post pull-right"><a href="/p/20220430/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%85%B6%E4%BB%96/%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B/cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">语言类型</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/avator.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">zhinushannan</div><div class="author-info__description">梦想将故</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhinushannan/"><i class="fab fa-github"></i><span>Follow me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zhinushannan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zhinushannan@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%95%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">引出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">HTTP请求方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">HTTP响应状态码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpbin%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">httpbin工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#httpbin%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">httpbin是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8API"><span class="toc-number">4.2.</span> <span class="toc-text">可用API</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E5%B7%A5%E5%85%B7/mac/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker"/></a><div class="content"><a class="title" href="/p/20220604/" title="Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker">Mac(m1)安装配置Java/Python/Node/Git/Hadoop/Scala/Spark/Docker</a><time datetime="2022-06-04T00:29:07.000Z" title="发表于 2022-06-04 08:29:07">2022-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220529/" title="Docker网络（未完成）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/%E8%BF%90%E7%BB%B4/Docker/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker网络（未完成）"/></a><div class="content"><a class="title" href="/p/20220529/" title="Docker网络（未完成）">Docker网络（未完成）</a><time datetime="2022-05-29T00:29:07.000Z" title="发表于 2022-05-29 08:29:07">2022-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/20220515/" title="Java多线程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/1.cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java多线程"/></a><div class="content"><a class="title" href="/p/20220515/" title="Java多线程">Java多线程</a><time datetime="2022-05-15T00:29:07.000Z" title="发表于 2022-05-15 08:29:07">2022-05-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By zhinushannan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://jsdelivr.kwcoder.club/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://jsdelivr.kwcoder.club/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://jsdelivr.kwcoder.club/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://jsdelivr.kwcoder.club/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://jsdelivr.kwcoder.club/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>new CaveDraw({
+  ele: '#veditor',
+  special: 'valine',
+  openBtn: {
+    style: 'background-color:#b37ba4;color:white;',
+    hoverStyle: 'background-color: #49d0c0;'
+  },
+  canvasStyle: 'cursor:crosshair;background:whitesmoke;/*margin-bottom:5px;border-radius:0px;*/'
+})
+
+var valine = new Valine();
+valine.init({
+  el: '#vcomment',
+  appId: '1sAcEuvKSBgfYxRJpXU3QMKE-MdYXbMMI',
+  appKey: 'WVHuElCrdb2Tquwe9OFjFExP',
+  avatar: 'monsterid',
+  serverURLs: 'https://1saceuvk.api.lncldglobal.com',
+  emojiMaps: "",
+  path: window.location.pathname,
+  visitor: false
+});</script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="/js/third-party/canvas-nest.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body></html>
